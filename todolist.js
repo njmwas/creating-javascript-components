@@ -19,14 +19,14 @@ function openTaskForm(task) {
     var addTaskForm = TaskForm({
         onAdd: (taskItem) => {
 
-            const taskIndex = TaskData.tasks.findIndex(tsk=>tsk.id == taskItem.id);
+            let taskIndex = TaskData.tasks.findIndex(tsk=>tsk.id == taskItem.id);
             if(taskIndex == -1) taskIndex = TaskData.tasks.length;
 
             const taskListItem = Task({
                 task:taskItem,
                 onRemove: () => TaskData.removeTask(taskIndex),
-                onMark: () => TaskData.markAs(taskIndex),
-                onEdit: () => openTaskForm(taskIndex)
+                onMark: () => TaskData.markAs(TaskData.tasks.findIndex(tsk=>tsk.id == taskItem.id)),
+                onEdit: () => openTaskForm(TaskData.tasks.find(tsk=>tsk.id == taskItem.id))
             });
 
             console.log(taskItem);

@@ -17,7 +17,7 @@ function addTask(task){
 }
 
 function editTask(index, task){
-    tasks.splice(index, 1, task);
+    tasks[index] = task;
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
