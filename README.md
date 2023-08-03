@@ -15,5 +15,10 @@ The Components directory/folder contains some of the sample components like
 - a [task](./components/task.js) component for each task create
 - a [taskList](./components/tasks.js) for holding all the tasks together
 
+## How it manages state
+This application manages it's own state using the [app.state.js](app.state.js). This file defines some variables and methods for manipulating the data:- retrieving, adding, removing and marking.
+
+It also uses the browser localstorage to persist data locally
+
 ## Why am I doing this
 In the adveture of trying to uncover how most frontend frameworks work behind the scenes I went on a journey to unlearn what I already know about JavaScript / HTML / CSS and relearning afresh, and who knows, I might create my own framework :wink:

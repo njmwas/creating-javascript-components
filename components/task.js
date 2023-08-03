@@ -1,21 +1,31 @@
 import Button from "./button.js";
+import TaskData from "../app.state.js";
 
-export default function Task({title}){
+export default function Task({title, status, onRemove, onMark}){
     var task = document.createElement('li');
 
     const space = document.createTextNode(" ")
 
-    var taskSpan = document.createElement("span");
+    var taskDiv = document.createElement("div");
     var taskText = document.createTextNode(title);
-    taskSpan.append(taskText);
+    taskDiv.append(taskText);
 
-    var removeButton = Button({ label:"&times;", onClick:()=>task.remove()});
+    if(status === 'done'){
+        taskDiv.style.textDecoration = "line-through";
+    }
+
+    var removeButton = Button({ label:"&times;", onClick:()=>{
+        // TaskData.removeTask( task.parentElement.indexOf(task) );
+        task.remove();
+        onRemove();
+    }});
     
     var doneButton = Button({ label:"&check;", onClick:(e)=>{
-        taskSpan.style.textDecoration = "line-through";
+        taskDiv.style.textDecoration = "line-through";
         e.target.disabled = true;
+        onMark();
     }});
 
-    task.append(...[taskSpan, space, space, doneButton, space, removeButton]);
+    task.append(taskDiv, space, space, doneButton, space, removeButton);
     return task;
 }

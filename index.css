@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+main{
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    min-height: 70dvh;
+}
+
+section{
+    margin-bottom: 0.6125rem;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+    border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+li div{
+    flex-grow: 1;
+    margin-right: auto;
+    padding: 0.325rem;
+}
+
+li button{
+    margin: 0.325rem;
+}
