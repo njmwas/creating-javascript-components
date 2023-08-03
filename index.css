@@ -11,7 +11,7 @@ main{
     min-height: 70dvh;
 }
 
-section{
+.container{
     margin-bottom: 0.6125rem;
 }
 
@@ -36,4 +36,31 @@ li div{
 
 li button{
     margin: 0.325rem;
+}
+
+.dialog-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.dialog-header h4, .dialog-header .container{
+    margin: 0;
+    padding: 0 !important;
+}
+
+.task-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.task-form input{
+    display: block;
+    padding: 0.325rem;
+    margin: 0.325rem 0;
+}
+
+.task-form button{
+    padding: 0.325rem;
 }

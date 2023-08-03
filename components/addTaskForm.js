@@ -1,7 +1,11 @@
+'use strict';
+
+import { TaskItem } from "../app.state.js";
 import Button from "./button.js";
 // import Container from "./container.js";
 
 export default function AddTaskForm({onAdd}){
+
     const form = document.createElement('form');
     const taskInput = document.createElement('input');
     const taskInputAttributes = {
@@ -16,9 +20,10 @@ export default function AddTaskForm({onAdd}){
 
     form.addEventListener('submit', e=>{
         e.preventDefault();
-        let task = taskInput.value;
-        onAdd(task);
+        onAdd(new TaskItem(taskInput.value, 'not-done'));
         form.reset();
+        task = undefined;
+
     });
     form.append(taskInput, addTaskButton);
 
