@@ -29,10 +29,10 @@ function openTaskForm(task) {
                 onEdit: () => openTaskForm(TaskData.tasks.find(tsk=>tsk.id == taskItem.id))
             });
 
-            console.log(taskItem);
             if (taskItem.status === 'edited') {
                 TaskData.editTask(taskIndex, { ...taskItem, status: 'not-done' });
-                taskLIst.childNodes.item(taskIndex).querySelector('div').innerHTML = taskItem.title;
+                taskLIst.replaceChild(taskListItem, taskLIst.childNodes.item(taskIndex));
+                // taskLIst.childNodes.item(taskIndex).querySelector('div').innerHTML = taskItem.title;
             }
             else {
                 TaskData.addTask(taskItem);
