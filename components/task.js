@@ -10,12 +10,7 @@ export default function Task({title, status, onRemove, onMark}){
     var taskText = document.createTextNode(title);
     taskDiv.append(taskText);
 
-    if(status === 'done'){
-        taskDiv.style.textDecoration = "line-through";
-    }
-
     var removeButton = Button({ label:"&times;", onClick:()=>{
-        // TaskData.removeTask( task.parentElement.indexOf(task) );
         task.remove();
         onRemove();
     }});
@@ -25,6 +20,11 @@ export default function Task({title, status, onRemove, onMark}){
         e.target.disabled = true;
         onMark();
     }});
+
+    if(status === 'done'){
+        taskDiv.style.textDecoration = "line-through";
+        doneButton.disabled = true;
+    }
 
     task.append(taskDiv, space, space, doneButton, space, removeButton);
     return task;
