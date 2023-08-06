@@ -2,13 +2,23 @@ body{
     display: flex;
     /* align-items: center; */
     flex-direction: column;
+    align-items: center;
+}
+
+header{
+    padding: 0.16rem;
+    border-bottom: 1px solid rgb(223, 223, 223);
 }
 
 main{
-    max-width: 320px;
+    max-width: 480px;
     display: flex;
     flex-direction: column;
     min-height: 70dvh;
+    margin-top: 0.6325rem;
+    /* align-self: center;
+    background-color: red; */
+    flex-grow: 1;
 }
 
 .container{
@@ -18,24 +28,40 @@ main{
 ul{
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 li{
-    display: flex;
+    /* display: flex; */
     width: 100%;
-    justify-content: start;
+    /* justify-content: start; */
     align-items: start;
     border-bottom: 1px solid rgb(214, 214, 214);
+    background-color: white;
+    box-shadow: 0 0 3px rgba(153, 153, 153, 0.7);
 }
 
 li div{
     flex-grow: 1;
     margin-right: auto;
     padding: 0.325rem;
+    margin: 1.25rem 0;
+    /* min-width: 80%; */
 }
 
-li button{
+li div:first-child{
+    padding: 1.25rem;
+}
+
+li.task button{
     margin: 0.325rem;
+    background:none;
+    border:none;
+    cursor: pointer;
+}
+
+li.task button:hover{
+    background: rgb(214, 214, 214);
 }
 
 .dialog-header{
